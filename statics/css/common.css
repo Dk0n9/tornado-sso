@@ -1,0 +1,51 @@
+body {
+    background-color: #E1E2E1;
+}
+
+nav {
+    background-color: #2196f3 !important;
+}
+
+.side-nav li > a:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.card.horizontal .card-image img {
+    min-height: 100%;
+}
+
+.info {
+  background-color: #29b6f6 !important;
+}
+
+.success {
+  background-color: #00ea20 !important;
+}
+
+.warning {
+  background-color: #ffbc10 !important;
+}
+
+.error {
+  background-color: #ff0000 !important;
+}
+
+.btn-primary {
+    background-color: #2196f3 !important;
+}
+
+.btn-dismiss {
+    background-color: #78909c !important;
+}
+
+.btn-teal {
+    background-color: #009688 !important;
+}
+
+.imgHover:hover {
+    border: 2px solid #4fc3f7 !important;
+}
+
+.app-info {
+    text-transform: uppercase;
+}

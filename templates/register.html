@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "common/header.html" %}
+    <title>Register</title>
+    <style>
+        html, body {
+            background: linear-gradient(150deg, #2196f3 50%, #42a5f5 50%);
+            height: 100%;
+        }
+    </style>
+</head>
+
+<main style="height: 100%;">
+    <div class="row">
+        <div class="container">
+            <div class="col s12 l8 offset-l2" style="padding-top: 17%;">
+                <div class="col s12 l12 m12">
+                    <div class="card horizontal hoverable" style="background-color: #eaeaea;">
+                        <div class="card-image hide-on-small-only waves-effect">
+                            <img src="{{ static_url('images/register.jpg') }}">
+                            <span class="card-title white-text">Tornado-SSO</span>
+                        </div>
+                        <div class="card-stacked" id="registerForm">
+                            <div class="card-content" style="padding: 0px;">
+                                <h4 class="center">注册</h4>
+                                <div class="input-field col s12 l9 offset-l1">
+                                    <i class="material-icons prefix">person</i>
+                                    <input name="v_name" id="name_prefix" type="text" class="validate"
+                                           autocomplete="off" onBlur="checkNameExist()">
+                                    <label for="name_prefix">用户名</label>
+                                </div>
+                                <div class="input-field col s12 l9 offset-l1">
+                                    <i class="material-icons prefix">email</i>
+                                    <input name="v_email" id="email_prefix" type="email" class="validate"
+                                           autocomplete="off" onBlur="checkMailExist()">
+                                    <label for="email_prefix" data-error="请输入正确的邮箱地址">邮箱</label>
+                                </div>
+                                <div class="input-field col s12 l9 offset-l1">
+                                    <i class="material-icons prefix">https</i>
+                                    <input name="v_pwd" id="pass_prefix" type="password" class="validate"
+                                           autocomplete="off" length="32" minlength="8" maxlength="32">
+                                    <label for="pass_prefix">密码, 至少8位</label>
+                                </div>
+                                <div class="input-field col s12 l9 offset-l1">
+                                    {% raw xsrf_form_html() %}
+                                    <i class="material-icons prefix">https</i>
+                                    <input name="v_confirm_pwd" id="confirm_pass_prefix" type="password"
+                                           class="validate"
+                                           autocomplete="off" length="32" minlength="8" maxlength="32" onBlur="checkSamePwd()">
+                                    <label for="confirm_pass_prefix">重复密码</label>
+                                </div>
+                                {% raw xsrf_form_html() %}
+                            </div>
+                            <div class="card-action">
+                                <a href="/login" class="left teal-text" style="text-decoration: underline;">已经有帐号 ?</a>
+                                <a href="#" id="registerBtn" class="right teal-text" onclick="register()">注册<i class="material-icons right">send</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ static_url('js/materialize.min.js') }}"></script>
+<script type="text/javascript" src="{{ static_url('user/user.js') }}"></script>
+
+</html>

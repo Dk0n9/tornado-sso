@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "common/header.html" %}
+    <title>Login</title>
+    <style>
+        html, body {
+            background: linear-gradient(150deg, #2196f3 50%, #42a5f5 50%);
+            height: 100%;
+        }
+    </style>
+</head>
+
+<main style="height: 100%;">
+    <div class="row">
+        <div class="container">
+            <div class="col s12 l8 offset-l2" style="padding-top: 17%;">
+                <div class="col s12 l12 m12">
+                    <div class="card horizontal hoverable" style="background-color: #eaeaea;">
+                        <div class="card-image hide-on-small-only waves-effect">
+                            <img src="{{ static_url('images/register.jpg') }}">
+                            <span class="card-title white-text">Tornado-SSO</span>
+                        </div>
+                        <div class="card-stacked" id="unauthorizedForm">
+                            <div class="card-content" style="padding-left: 0;padding-right: 0;">
+                                <div class="input-field col s10 offset-s1">
+                                    <h3 class="app-info center flow-text">使用你的帐号访问 <a href="{{ clientURL }}" target="_blank">{{ clientName }}</a></h3>
+                                </div>
+                                <div class="input-field col s10 offset-s1 l10 offset-l1">
+                                    <i class="material-icons prefix">email</i>
+                                    <input name="v_email" id="email_prefix" type="email" class="validate"
+                                           autocomplete="off">
+                                    <label for="email_prefix" data-error="请输入正确的邮箱地址">输入你的邮箱</label>
+                                </div>
+                                <div class="input-field col s10 offset-s1 l10 offset-l1">
+                                    <i class="material-icons prefix">https</i>
+                                    <input name="v_pwd" id="pass_prefix" type="password" class="validate"
+                                           autocomplete="off" length="32" minlength="8" maxlength="32">
+                                    <label for="pass_prefix" data-error="密码位数不正确">输入你的密码</label>
+                                </div>
+                                <div class="input-field col s10 offset-s1 l10 offset-l1">
+                                    <a href="/login" class="btn btn-dismiss btn-flat waves-effect waves-light white-text left">取消</a>
+                                    <a id="loginBtn" href="#" class="btn btn-teal btn-flat waves-effect waves-light white-text right">登录</a>
+                                </div>
+                            </div>
+                            <div class="card-action">
+                                {% raw xsrf_form_html() %}
+                                <a href="/register?referer={{ referer }}" class="right teal-text" style="text-decoration: underline;">还没有帐号 >></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript" src="//cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ static_url('js/materialize.min.js') }}"></script>
+<script type="text/javascript" src="{{ static_url('user/user.js') }}"></script>
+
+</html>
